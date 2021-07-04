@@ -525,6 +525,11 @@ message.channel.send(data);
 
 })
 
+client.on('guildMemberAdd', member => {
+  channel = client.channels.cache.get('750623569255333918')
+  //channel.send()
+}) 
+
 client.login(process.env.DJS_TOKEN);
 //client.login('NzkzMDgxMTc2NzQ2MDk4Njk4.X-nEZw.Ns1rq6maGLQc1po7JfYk4Ply_WU')
 return 0;
