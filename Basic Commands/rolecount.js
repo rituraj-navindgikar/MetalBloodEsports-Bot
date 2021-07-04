@@ -8,7 +8,7 @@ module.exports = {
 if(!args[0]){message.channel.send(`Specify the id of role, Correct usage is\n\`${PREFIX}rolecount roleID\``)
 }
 else if(isNaN(args[0])){message.channel.send(`Specify the id of role. try not to ping those roles, here copy the role id\``)
-      message.channel.send(`\`\`args[0]\`\``)}
+      message.channel.send(`\`\`${args[0]}\`\``)}
 
 else {     
     let roleID = args[0];

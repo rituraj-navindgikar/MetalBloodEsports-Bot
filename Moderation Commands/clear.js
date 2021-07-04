@@ -26,7 +26,7 @@ module.exports = {
 
          await message.channel.messages.fetch({limit: args[0]}).then(messages =>{
            //console.log(+args[0] + 1)  
-          message.channel.bulkDelete(+args[0]);
+          message.channel.bulkDelete(+args[0]+1);
              message.channel.send(Embedclear).then(msg => msg.delete({timeout:2000}));
                    
          })
