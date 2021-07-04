@@ -3,13 +3,13 @@ const Discord = require('discord.js')
 module.exports = {
     name:'rolecount',
   async execute(message,args,PREFIX){
-    const textChannel = message.channel
-    const permissions = textChannel.permissionsFor(message.client.user);
-    if(!permissions.has('SEND_MESSAGES')) return message.author.send(`Sorry I dont have permission to send message in channel \`${message.channel.name}\` for your command \`embed\``);
+
   const { guild } = message
 if(!args[0]){message.channel.send(`Specify the id of role, Correct usage is\n\`${PREFIX}rolecount roleID\``)
 }
-else if(isNaN(args[0])){message.channel.send(`Specify the id of role and not \`${args[0]}\`, Correct usage is\n\`${PREFIX}rolecount roleID\``)}
+else if(isNaN(args[0])){message.channel.send(`Specify the id of role. try not to ping those roles, here copy the role id\``)
+      message.channel.send(`\`\`args[0]\`\``)}
+
 else {     
     let roleID = args[0];
     if(!roleID) return message.channel.send(`That role id does not exist!`)

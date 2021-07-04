@@ -25,10 +25,10 @@ module.exports = {
          if(args[0] < 1)  return message.channel.send("Type a number greater than or equal to 1").then(msg => msg.delete({timeout:5000}))
 
          await message.channel.messages.fetch({limit: args[0]}).then(messages =>{
-             message.channel.bulkDelete(args[0]);
+           //console.log(+args[0] + 1)  
+          message.channel.bulkDelete(+args[0]);
              message.channel.send(Embedclear).then(msg => msg.delete({timeout:2000}));
                    
          })
-         console.log(`${message.guild.name},@${message.author.username},#${message.channel.name} clear command used`)
 
  }}

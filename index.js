@@ -162,6 +162,8 @@ var time_ago = db.get(`afktime_${message.mentions.members.first().id}`);
   afk_time = "A few seconds ago!";
 }else if(Math.floor(milliseconds) <= 120000){
   afk_time = "A few seconds ago!";
+}else if(Math.floor(milliseconds) >=0){
+  afk_time = "A few seconds ago!";
 }
 
   if(db.has(`afkmember_${mentioned_person.id}&&${message.guild.id}`))

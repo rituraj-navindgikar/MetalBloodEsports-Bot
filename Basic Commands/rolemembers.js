@@ -1,5 +1,4 @@
-const { execute } = require("../Set Channel/chatbot-channel");
-
+const Discord = require('discord.js')
 module.exports = {
     name:'rolemembers',
     async execute(message,args,PREFIX){
@@ -11,11 +10,13 @@ module.exports = {
         role.members.forEach(user => {
             arr.push(`\`${user.user.username}\``);
         }); 
-           message.channel.send(arr.join(' | ')).catch(err => {
+        const embed = new Discord.MessageEmbed()
+        .setDescription(`${arr.length} have ${role}\n${arr.join(' | ')}`)
+           message.channel.send(embed).catch(err => {
             message.reply('message is more than 2000 charachter');
             console.error(err);
             })
-            console.log(`${message.guild.name},@${message.author.username},#${message.channel.name} rolecount command used`)
+          //  console.log(`${message.guild.name},@${message.author.username},#${message.channel.name} rolecount command used`)
 
     }
 }
