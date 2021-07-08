@@ -482,7 +482,7 @@ try{
         const channelid = '750623569255333918'
         const channel = client.channels.cache.get(channelid)
         const welembedcome = new Discord.MessageEmbed()
-        .setDescription(`<a:redstar:836509946446610453>Greetings From MTB Esports<a:redstar:836509946446610453>
+        .setDescription(`             <a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
         Welcome to our server ${member}
 Now we are a family of **__${membercount}__** members <a:hype:759725271245914113>
 <a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554>
