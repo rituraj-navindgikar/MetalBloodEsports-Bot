@@ -477,8 +477,8 @@ try{
 //}
 })
 
-    client.on('guildMemberAdd', (member)  => {
-        var membercount = member.guild.members.size
+    client.on('guildMemberAdd',async (member)  => {
+        var membercount = member.guild.memberCount
         const channelid = '750623569255333918'
         const channel = client.channels.cache.get(channelid)
         const welembedcome = new Discord.MessageEmbed()
