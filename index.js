@@ -478,20 +478,21 @@ try{
 })
 
     client.on('guildMemberAdd', (member)  => {
-
-      let welcomeChannel = db.get(`greet_${member.guild.id}`)
-      if(welcomeChannel === null) return;
-           let channel = client.channels.cache.get(welcomeChannel)
-     
-       let joinmsg = db.get(`greetmsg_${member.guild.id}`)   
-        let time = db.get(`greetdel_${member.guild.id}`)
-     
-   
-        if(channel === undefined) return;
-        if(joinmsg === undefined) return;
-        if(time === undefined || null) return;
-
-    channel.send(`${member}, ${joinmsg}`).then(msg => msg.delete({timeout: time}))
+        var membercount = member.guild.members.size
+        const channelid = '750623569255333918'
+        const channel = client.channels.cache.get(channelid)
+        const welembedcome = new Discord.MessageEmbed()
+        .setDescription(`Welcome to our server ${member}
+Now we are a family of ${membercount} members <a:hype:759725271245914113>
+<a:784339639539335188:854064293217566720> Do remember to take self roles from <#797363384797888543>
+<a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554>
+<a:784339639539335188:854064293217566720>  Stay up to date with our server <#750623574443687956>
+<a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554>
+<a:784339639539335188:854064293217566720> Join our giveaways in <#843734479365472266>
+<a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554><a:line:855448048330604554>
+<a:784339639539335188:854064293217566720>  Have fun in <#750623573395112007>`)
+        .setImage('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
+      channel.send(welembedcome) 
   })
 
 
