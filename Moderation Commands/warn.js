@@ -14,7 +14,7 @@ try{
             if(!context) return message.channel.send('Type a message to send')
       
             const contextresult = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            .setColor('#ff0000')
             .setDescription(context)
             .setTimestamp()
             .setFooter("Warning From MTB Management Team")
@@ -79,10 +79,11 @@ try{
 
             var content_with_exlacmation = getDifference(string2, string1)
             var content = content_with_exlacmation.replace(/!/g, '')
-            message.channel.send(` Sending messages to mentioned people, After Warning all i will send message again`)
+            //message.channel.send(` Sending messages to mentioned people, After Warning all i will send message again`)
             // below correct
+            message.channel.send(`Gave your Warning successfully`)
             const contentresult = new Discord.MessageEmbed()
-            .setColor("RANDOM")
+            .setColor("#ff0000")
             .setDescription(content)
             .setTimestamp()
             .setFooter("Warning From MTB Management Team")
@@ -102,7 +103,7 @@ try{
                         clearInterval(interv)
                     }
                 }, 10000);
-                message.channel.send(`Gave your Warning successfully`)
+                
                 
             }
         }

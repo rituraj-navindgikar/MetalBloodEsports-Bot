@@ -484,8 +484,8 @@ try{
         const welembedcome = new Discord.MessageEmbed()
         .setColor('#f7e707')
         .setDescription(`<a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
-        Welcome to our server ${member}
-Now we are a family of **__${membercount}__** members <a:hype:759725271245914113>\n
+        Welcome to our server **${member.user.username}**
+Now we are a family of __**${membercount}**__ members <a:hype:759725271245914113>\n
 <a:784339639539335188:854064293217566720> Do remember to take self roles from <#797363384797888543>\n
 <a:784339639539335188:854064293217566720> Stay up to date with our server <#750623574443687956>\n
 <a:784339639539335188:854064293217566720> Join our giveaways in <#843734479365472266>\n
@@ -527,6 +527,5 @@ message.channel.send(data);
 })
 
 client.login(process.env.DJS_TOKEN);
-//client.login('NzkzMDgxMTc2NzQ2MDk4Njk4.X-nEZw.Ns1rq6maGLQc1po7JfYk4Ply_WU')
 return 0;
 //0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟⏸️🔢👉
