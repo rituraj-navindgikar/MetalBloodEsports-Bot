@@ -229,6 +229,10 @@ client.on('message', message => {
     else if(command === 'warn'){
       client.commands.get('warn').execute(message, args, PREFIX,client, Discord);                          
     }
+    else if(command === 'nickname'){client.commands.get('nickname').execute(message, args, PREFIX,client, Discord);}  
+    else if(command === 'nick'){client.commands.get('nickname').execute(message, args, PREFIX,client, Discord);                          
+    }                        
+    
 
 
     else if(command ==='help'){
