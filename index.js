@@ -119,7 +119,7 @@ client.on('message', async message =>{
   if(db.has(`afkmember_${message.author.id}&&${message.guild.id}`))
   {
     let reason = db.get(`afkreason_${message.author.id}&&${message.guild.id}`)
-  message.reply(`\`Welcome! Your afk status\` ${reason} \`has been removed\``).then(msg => msg.delete({timeout:5000}));
+  message.reply(`\`Welcome! Your afk status\` ${reason} \`is removed\``).then(msg => msg.delete({timeout:5000}));
   db.delete(`afkmember_${message.author.id}&&${message.guild.id}`);
   db.delete(`afkreason_${message.author.id}&&${message.guild.id}`);
   db.delete(`afktime_${message.author.id}`);
@@ -463,7 +463,7 @@ try{
     }
 })
 ///////////////////////////////////////////////////////////////////////////////////
-  client.on('message', message =>{
+//  client.on('message', message =>{
     // const textChannel = message.channel
     // const permissions = textChannel.permissionsFor(message.client.user);
     // if(!permissions.has('SEND_MESSAGES')) return;
@@ -479,12 +479,12 @@ try{
 //       message.reply(kuchBhi) + 
 //       console.log(`${message.guild.name},@${message.author.username},#${message.channel.name} got pinged`)
 //}
-})
+//})
 
-    client.on('guildMemberAdd', member => {
-        var membercount = member.guild.memberCount;
+    client.on('guildMemberAdd', async member => {
+        var membercount = await member.guild.memberCount;
         const channelid = '750623569255333918';
-        const channel = client.channels.cache.get(channelid)
+        const channel = await client.channels.cache.get(channelid)
         const welembedcome = new Discord.MessageEmbed()
         .setColor('#f7e707')
         .setDescription(`<a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
@@ -495,7 +495,7 @@ Now we are a family of __**${membercount}**__ members <a:hype:759725271245914113
 <a:784339639539335188:854064293217566720> Join our giveaways in <#843734479365472266>\n
 <a:784339639539335188:854064293217566720>  Have fun in <#750623573395112007>`)
         .setImage('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
-      channel.send(welembedcome) 
+     await channel.send(welembedcome) 
   })
 
 

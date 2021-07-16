@@ -12,7 +12,7 @@ var c =db.set(`afktime_${message.author.id}`, time)
 //console.log(a,b,c)
 const embed = new MessageEmbed()
 .setColor('#0000FF')
-.setDescription(`\`Afk set to\` ${reason}`)
+.setDescription(`Afk set:- **${reason}**`)
 .setAuthor(
     message.author.tag,
     message.author.displayAvatarURL({dynamic: true})
