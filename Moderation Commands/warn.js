@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'warn',
     async execute(message,args,PREFIX,client){
-        if(!message.member.hasPermission('MANAGE_GUILD')) return
+        if(!message.member.hasPermission('MANAGE_EMOJIS')) return
 
         if(!args[0]) return message.channel.send("Mention a role or mention multiple users")
 
