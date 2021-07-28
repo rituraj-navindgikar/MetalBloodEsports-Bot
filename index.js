@@ -71,13 +71,19 @@ for(const file of commandsFiles11)
     const commands = require(`./Music/${file}`);
     client.commands.set(commands.name, commands);
 }
+const commandsFiles12 = fs.readdirSync(`./src/`).filter(file => file.endsWith('js'));
+for(const file of commandsFiles12)
+{
+    const commands = require(`./src/${file}`);
+    client.commands.set(commands.name, commands);
+}
 
 
-  const inviteNotifications = require('./Welcome/invite-notifications')
+  //const inviteNotifications = require('./Welcome/invite-notifications')
 
   client.on('ready', () => {
   console.log(`${client.user.username} is online!`);
-  inviteNotifications(client)
+  //inviteNotifications(client)
 
     let watching = [`${PREFIX}help`, 
       'Working For MTB Server']
@@ -383,6 +389,13 @@ client.on('message', message => {
   else if(command === 'join'){
     client.commands.get('join').execute(message,args,PREFIX)}else if(command == 'j'){
     client.commands.get('join').execute(message,args,PREFIX)
+
+  } 
+   else if(command === 'leaderboard'){
+    client.commands.get('leaderboard').execute(client, message,args);
+  }
+  else if(command === 'set-channel'){
+    client.commands.get('set-channel').execute(client, message,args);
   }
 })
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -481,20 +494,22 @@ try{
 //}
 //})
 
-    client.on('guildMemberAdd', async member => {
-        var membercount = await member.guild.memberCount;
-        const channelid = '750623569255333918';
-        const channel = await client.channels.cache.get(channelid)
-        await channel.send(`<a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
-        Welcome to our server **${member}**
-Now we are a family of __**${membercount}**__ members <a:hype:759725271245914113>\n
-<a:784339639539335188:854064293217566720> Do remember to take self roles from <#797363384797888543>\n
-<a:784339639539335188:854064293217566720> Stay up to date with our server <#750623574443687956>\n
-<a:784339639539335188:854064293217566720> Join our giveaways in <#843734479365472266>\n
-<a:784339639539335188:854064293217566720>  Have fun in <#750623573395112007>`)
-        + await  message.channel.send('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
-  
-  })
+//     client.on('guildMemberAdd', async member => {
+        
+//         const channelid = '750623569255333918';
+//         const channel = await client.channels.cache.get(channelid)
+//         const welembedcome = new Discord.MessageEmbed()
+//         .setColor('#f7e707')
+//         .setDescription(`<a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
+//         Welcome to our server **${member.user.username}**
+// Now we are a family of __**${membercount}**__ members <a:hype:759725271245914113>\n
+// <a:784339639539335188:854064293217566720> Do remember to take self roles from <#797363384797888543>\n
+// <a:784339639539335188:854064293217566720> Stay up to date with our server <#750623574443687956>\n
+// <a:784339639539335188:854064293217566720> Join our giveaways in <#843734479365472266>\n
+// <a:784339639539335188:854064293217566720>  Have fun in <#750623573395112007>`)
+//         .setImage('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
+//      await channel.send(welembedcome) 
+//   })
 
 
 
@@ -526,6 +541,41 @@ message.channel.send(data);
 message.channel.send(data);
   }
 
+})
+
+
+
+const mongoose = require('mongoose')
+mongoose.connect('mongodb+srv://rituraj:rishiraj18@metalbloodesportsbot.mo0gr.mongodb.net/Data', {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+}).then(console.log("Connected to Mongo db!"))
+
+const db1 = require('./src/schemas/Guild')
+const user = require('./src/schemas/User')
+
+client.on('message', async(message) => {
+  const data = await db1.findOne({ id: message.guild.id })
+  if(!data) return
+  if(message.channel.id != data.Channel) return; // 870007206056169502
+
+  if(parseInt(message.content) === data.Current+1){
+    user.findOne({ id: message.author.id, Guild: message.guild.id }, async(err,data) => {
+      if(err) throw err;
+      if(data){
+        data.Counts++;
+      }else{
+        data = new user({
+          id: message.author.id,
+          Guild: message.guild.id,
+          Counts: 1
+        })
+      }
+      data.save();
+    })
+  }else message.delete();
+  data.Current = parseInt(message.content)
+  data.save();
 })
 
 client.login(process.env.DJS_TOKEN);
