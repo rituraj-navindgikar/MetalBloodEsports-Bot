@@ -391,9 +391,9 @@ client.on('message', message => {
     client.commands.get('join').execute(message,args,PREFIX)
 
   } 
-   else if(command === 'leaderboard'){
-    client.commands.get('leaderboard').execute(client, message,args);
-  }
+//   else if(command === 'leaderboard'){
+//    client.commands.get('leaderboard').execute(client, message,args);
+  //}
   else if(command === 'set-channel'){
     client.commands.get('set-channel').execute(client, message,args);
   }
