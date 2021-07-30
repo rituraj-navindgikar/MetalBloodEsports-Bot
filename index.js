@@ -498,6 +498,7 @@ try{
         
        const channelid = '750623569255333918';
        const channel = await client.channels.cache.get(channelid)
+       const membercount = await member.guild.memberCount;
        const welembedcome = new Discord.MessageEmbed()
        .setColor('#f7e707')
        .setDescription(`<a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
