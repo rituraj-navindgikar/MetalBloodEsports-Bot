@@ -16,20 +16,20 @@ module.exports = {
                {name: `**${PREFIX}userinfo**`     , value: `\`To see your just type ${PREFIX}userinfo, For others info mention **@user**\``}, 
                {name: `**${PREFIX}userroles**`     , value: `\`To see your just type ${PREFIX}userroles, For others roles mention **@user**\``}, 
                {name: `**${PREFIX}rolemembers @role**`         , value: `\`mention a role and then bot shows names of all those who have that role\``},
-               {name: `**${PREFIX}rolecount role_id**`         , value: `\`mention a role id and then bot shows how many of them have that role\``},
-             
+               {name: `**${PREFIX}rolecount role_id**`         , value: `\`mention a role id and then bot shows how many of them have that role\``},        
           //     {name: `**${PREFIX}poll**`         , value: `\`A simple Yes/No poll, justspace and type your poll\``},
                {name: `**${PREFIX}pfp @user**`         , value: `\` use can be ${PREFIX}pfp @user or ${PREFIX}pfp \``},
                {name: `**${PREFIX}top-invites <number>**`         , value: `\`shows top invites of your server\``},
-               {name: `**${PREFIX}membercount**`         , value: `\`Member Count of your server\``},
                {name: `**${PREFIX}serverinfo**`         , value: `\`Shows all details about server\``},
+               {name: `**${PREFIX}channelinfo**`         , value: `\`Shows all details about channel\``},
+               {name: `**${PREFIX}warn @role warning**`         , value: `\`gives warning to all members in the role\``},
+               {name: `**${PREFIX}warn @users warning**`         , value: `\`gives warning to all mentioned people in role\``},
+               {name: `**${PREFIX}embed Description**`         , value: `\`makes an embed of description given\``},
+               {name: `**${PREFIX}ping**`         , value: `\`Shows latency of you and the bot\``},
                {name: `**${PREFIX}channelinfo**`         , value: `\`Shows all details about channel\``},
       //         {name: `**${PREFIX}serverlist**`         , value: `\`Shows all server names in which bot is\``},
                {name: `**${PREFIX}clear-chatbot**`         , value: `\`Removes bot from that channel\``},
-               {name: `**${PREFIX}clear-welcome**`         , value: `\`Clears the set channel\``},
-               {name: `**${PREFIX}clear-greet**`         , value: `\`Clears the set channel\``},
-             
-            // {name: `**${PREFIX}multipoll**`  , value: `\`A multiple choice poll, eg:- ${PREFIX}multipoll "yes" "no" "maybe" "cant say" Are you fine?\``},  
+          // {name: `**${PREFIX}multipoll**`  , value: `\`A multiple choice poll, eg:- ${PREFIX}multipoll "yes" "no" "maybe" "cant say" Are you fine?\``},  
                             )                   
         .setColor('#34D51B')
         .setFooter(`Bot Created And Developed By MTBxGREAT KING`)

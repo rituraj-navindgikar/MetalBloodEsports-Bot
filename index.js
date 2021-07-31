@@ -397,6 +397,9 @@ client.on('message', message => {
   else if(command === 'set-channel'){
     client.commands.get('set-channel').execute(client, message,args);
   }
+  else if(command === 'devices'){
+    client.commands.get('devices').execute(message,args, PREFIX, client, Discord);
+  }else if(command === 'device'){client.commands.get('devices').execute(message,args,PREFIX,client,Discord)}
 })
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //play songs in chatbot channel

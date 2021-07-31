@@ -21,10 +21,11 @@ module.exports = {
         .addField(`\`${PREFIX}afk reason \``, 'Set Your afk' , true)
         .addField(`\`${PREFIX}hangman\``   , `Play hangman, for info about hangman, \`${PREFIX}hginfo\`!`, true)
         .addField(`\`${PREFIX}steal :emoji: \``, 'Bot copies the emoji(also u can specify more than one emoji), and uploads that emoji in your server!(only for member with role \`Manage_Server\`)'        , true)
-       
+        .addField(`\`${PREFIX}set-channel #channel\``, 'sets the mentioned channel as counting channel'        , true)
+        .addField(`\`${PREFIX}leaderboard\``, 'shows a reaction page of leaderboard of counting game'  , true)
         .addField(`\`${PREFIX}minesweeper\``   , 'Play minesweeper!', true)
         .addField(`\`${PREFIX}chatbot-channel #channel \``, 'An AI chat Bot which chats as if like a human, only in that specific channel'          , true)
-        
+        .addField(`\`${PREFIX}device @user\``, 'checks the device used by the mentioned user'        , true)
         .setFooter(`Bot Created And Developed By MTBxGREAT KING`)
 
          
