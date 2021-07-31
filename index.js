@@ -391,9 +391,9 @@ client.on('message', message => {
     client.commands.get('join').execute(message,args,PREFIX)
 
   } 
-//   else if(command === 'leaderboard'){
-//    client.commands.get('leaderboard').execute(client, message,args);
-  //}
+   else if(command === 'leaderboard'){
+    client.commands.get('leaderboard').execute(client, message,args);
+  }
   else if(command === 'set-channel'){
     client.commands.get('set-channel').execute(client, message,args);
   }
@@ -554,7 +554,7 @@ mongoose.connect('mongodb+srv://rituraj:rishiraj18@metalbloodesportsbot.mo0gr.mo
 }).then(console.log("Connected to Mongo db!"))
 
 const db1 = require('./src/schemas/Guild')
-const user = require('./src/schemas/User')
+const user = require('./src/schemas/Users')
 
 client.on('message', async(message) => {
   const data = await db1.findOne({ id: message.guild.id })
