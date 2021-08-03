@@ -514,7 +514,7 @@ try{
    channel.send('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
  
        const channelselfrole = client.channels.cache.get('797363384797888543');
-  channelselfrole.send(`Welcome To Metal Blood Esports! ${member} Here take your self role by reacting`).then(msg=>msg.delete({timeout: 10000})
+  channelselfrole.send(`Welcome To Metal Blood Esports! ${member} Here take your self role by reacting`).then(msg=>msg.delete({timeout: 10000}))
        
  })
 
