@@ -18,7 +18,7 @@ try{
             .setColor('#ff0000')
             .setDescription(context)
             .setTimestamp()
-            .setFooter(`Moderator - ${message.author.id}`)
+            .setFooter(`Mod - ${message.author.id}`)
       
             const role = message.mentions.roles.first() 
             if(!role) return message.channel.send('Mention a role')
@@ -88,7 +88,7 @@ try{
             .setColor("#ff0000")
             .setDescription(content)
             .setTimestamp()
-            .setFooter(`Moderator - ${message.author.id}`)
+            .setFooter(`Mod - ${message.author.id}`)
             let interv = setInterval(() => {
 
                 let member = member_Array.splice(Math.floor(Math.random() * member_Array.length), 1).toString();
