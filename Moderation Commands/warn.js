@@ -14,11 +14,11 @@ try{
             if(!context) return message.channel.send('Type a message to send')
       
             const contextresult = new Discord.MessageEmbed()
-            .setTitle(`Your role **${role.name}** got a Warn from MTB Team. Moderator - ${message.author.id}`)
+            .setTitle(`Your role **${role.name}** got a Warn from MTB Team`)
             .setColor('#ff0000')
             .setDescription(context)
             .setTimestamp()
-            //.setFooter("Warning From MTB Management Team")
+            .setFooter(`| Mod - ${message.author}`)
       
             const role = message.mentions.roles.first() 
             if(!role) return message.channel.send('Mention a role')
@@ -84,11 +84,11 @@ try{
             // below correct
             message.channel.send(`Gave your Warning successfully`)
             const contentresult = new Discord.MessageEmbed()
-            .setTitle(`You got a Warn from MTB Team. Moderator - ${message.author.id}`)
+            .setTitle(`You got a Warn from MTB Team`)
             .setColor("#ff0000")
             .setDescription(content)
             .setTimestamp()
-           // .setFooter("Warning From MTB Management Team")
+            .setFooter(`| Mod - ${message.author}`)
             let interv = setInterval(() => {
 
                 let member = member_Array.splice(Math.floor(Math.random() * member_Array.length), 1).toString();
