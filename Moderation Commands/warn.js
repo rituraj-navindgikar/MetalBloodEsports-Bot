@@ -88,7 +88,7 @@ try{
             .setColor("#ff0000")
             .setDescription(content)
             .setTimestamp()
-            .setFooter(`| Mod - ${message.author}`)
+            .setFooter(`Mod - ${message.author.username}`)
             let interv = setInterval(() => {
 
                 let member = member_Array.splice(Math.floor(Math.random() * member_Array.length), 1).toString();
