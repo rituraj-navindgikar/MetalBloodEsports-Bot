@@ -120,6 +120,11 @@ if (talkedRecently.has(message.author.id)) {return undefined} else {
 
 
 client.on('message', async message =>{
+if(message.type == 'dm') return;
+if(message.content.startsWith(`member <@711837685739946004> not received`)){
+message.delete({timeout:10})
+}
+
   if(message.author.bot)return;
 
   if(db.has(`afkmember_${message.author.id}&&${message.guild.id}`))
