@@ -196,7 +196,14 @@ client.on('message', message => {
 
     const args = message.content.slice(PREFIX.length).split(/ +/);                   
     const command = args.shift().toLowerCase()
-
+     if(command==='apply'){
+           const ebed = new Discord.MessageEmbed()
+           .setTitle('**Here! register for MTB Staff**')
+           .setDescription(`[MTB Staff Recruitment](https://docs.google.com/forms/d/e/1FAIpQLSfgJpJ2JljjwiKmu5MFBZND9Doc1qOWb1C3BdF3PFLATTp4jQ/viewform?usp=sf_link)`)
+           .setFooter('MTB Team')
+             message.channel.send(ebed)
+           }
+         
    if(command === 'userinfo'){
       client.commands.get('userinfo').execute(message, args, PREFIX);
     }
