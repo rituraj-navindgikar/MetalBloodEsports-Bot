@@ -6,7 +6,7 @@ module.exports ={
     const client = new Discord.Client()
        if(!message.guild.me.hasPermission('EMBED_LINKS')) return message.channel.send(`\`i dont have permission in this channel to embed links,
     Please give me that role in this channel!\n To know what role u should give me type ${PREFIX}setup\``)   
-  setTimeout(function()=>{
+  setTimeout(function(){
     if(!args.length) return message.channel.send(`Please specify a description\nCorrect usage is\`\`${PREFIX}embed DESCRIPTION\`\``)
  
     let description = args.join(' ')
