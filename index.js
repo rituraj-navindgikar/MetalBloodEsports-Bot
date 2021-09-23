@@ -518,10 +518,10 @@ try{
        await channel.send(`<a:redstar:836509946446610453>**Greetings From MTB Esports**<a:redstar:836509946446610453>
        Welcome to our server **${member}**
  Now we are a family of __**${membercount}**__ members <a:hype:759725271245914113>\n
-<a:tick:854064293217566720> Do remember to take self roles from <#797363384797888543>\n
-<a:tick:854064293217566720> Chat With our chatbot <#794552577835794442>\n
-<a:tick:854064293217566720> Join our giveaways in <#843734479365472266>\n
-<a:tick:854064293217566720>  Have fun in <#750623573395112007>`)+ 
+<a:GIFNE_dil:86627877177747046> Do remember to take self roles from <#797363384797888543>\n
+<a:GIFNE_dil:86627877177747046> Chat With our chatbot <#794552577835794442>\n
+<a:GIFNE_dil:86627877177747046> Join our giveaways in <#843734479365472266>\n
+<a:GIFNE_dil:86627877177747046> Have fun in <#750623573395112007>`)+ 
        
    channel.send('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
  
