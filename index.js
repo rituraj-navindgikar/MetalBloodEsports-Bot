@@ -520,7 +520,7 @@ try{
  Now we are a family of __**${membercount}**__ members <a:hype:759725271245914113>\n
 <:santa_gift:777910276166254622> Do remember to take self roles from <#797363384797888543>\n
 <:santa_gift:777910276166254622> Chat With our chatbot <#794552577835794442>\n
-<:santa_gift:777910276166254622> Join our giveaways in <#843734479365472266>\n
+<:santa_gift:777910276166254622> Join our giveaways in <#893797085676191746>\n
 <:santa_gift:777910276166254622> Have fun in <#750623573395112007>`)+ 
        
    channel.send('https://images-ext-1.discordapp.net/external/q2E_EVBNiGs7eWcMepNGXhN8Xxa1ylEMai5uiY03pps/https/media.discordapp.net/attachments/712714975352979507/861265762111193128/standard2.gif')
