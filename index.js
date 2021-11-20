@@ -305,15 +305,6 @@ client.on('message', message => {
     }    else if(command === 'check'){
       client.commands.get('check').execute(message,args,PREFIX)
     }
-/*
-  KICK_MEMBERS: false,
-  BAN_MEMBERS: false,
-  MANAGE_CHANNELS: false,
-  MANAGE_GUILD: false,
-  MANAGE_MESSAGES: false,
-  MANAGE_ROLES: false,
-  */
-
     else if(command === 'cat'){
       client.commands.get('cat').execute(message,args,PREFIX, client)
     }
