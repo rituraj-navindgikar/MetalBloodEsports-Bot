@@ -16,7 +16,7 @@ module.exports = {
         for(var i=0; i<roleIds.length; i++){
            let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
             if(role.editable){
-                console.log(role.name, role.permissions.serialize().ADMINISTRATOR)
+                console.log(role.name, role.permissions.serialize().KICK_MEMBERS)
                 //validRoles.push(role.name)
                 console.log(i)
             }
