@@ -8,11 +8,8 @@ module.exports = {
     }else{
         let roleIds = new Array()
         let validRoles = new Array()
-
         message.guild.roles.cache.forEach(role => roleIds.push(role.id))
-        const perm_type = args[0]
-        console.log(perm_type)
-        
+
         if(args[0] == 'admin'){
             for(var i=0; i<roleIds.length; i++){
                 let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
