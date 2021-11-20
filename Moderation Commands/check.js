@@ -13,13 +13,21 @@ module.exports = {
         if(args[0] == 'admin'){
             for(var i=0; i<roleIds.length; i++){
                 let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
+                 if(role.editable && role.permissions.serialize().ADMINISTRATOR){
+                    validRoles.push(role.name)
+                }
+            }
+            message.channel.send(`Following roles have Permission Admin\n${validRoles.join('\n')}`)
+        }
+        else if(args[0] == 'kick'){
+            for(var i=0; i<roleIds.length; i++){
+                let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
                  if(role.editable && role.permissions.serialize().KICK_MEMBERS){
                     validRoles.push(role.name)
                 }
             }
-            message.channel.send(`Following roles have Permission Admin\n${validRoles}`)
+            message.channel.send(`Following roles have Permission to Kick\n${validRoles.join('\n')}`)
         }
-        else if(args[0] == 'kick'){}
         else if(args[0] == 'ban'){}
         else if(args[0] == 'channel'){}
         else if(args[0] == 'server'){}
