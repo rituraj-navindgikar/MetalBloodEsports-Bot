@@ -16,12 +16,12 @@ module.exports = {
         for(var i=0; i<roleIds.length; i++){
            let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
             if(role.editable){
-                console.log(role.permissions.serialize().perm_type)
+                console.log(role.name, role.permissions.serialize().ADMINISTRATOR)
                 //validRoles.push(role.name)
                 console.log(i)
             }
         }
-        message.channel.send(`Following roles have Permission ${args[0]}\n${validRoles}`)
+        message.channel.send(`Following roles have Permission Admin\n${validRoles}`)
         }
     }
 }
