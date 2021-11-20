@@ -12,16 +12,25 @@ module.exports = {
         message.guild.roles.cache.forEach(role => roleIds.push(role.id))
         const perm_type = args[0]
         console.log(perm_type)
-
-        for(var i=0; i<roleIds.length; i++){
-           let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
-            if(role.editable){
-                console.log(role.name, role.permissions.serialize().KICK_MEMBERS)
-                //validRoles.push(role.name)
-                console.log(i)
+        
+        if(args[0] == 'admin'){
+            for(var i=0; i<roleIds.length; i++){
+                let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
+                 if(role.editable && role.permissions.serialize().KICK_MEMBERS){
+                    validRoles.push(role.name)
+                }
             }
+            message.channel.send(`Following roles have Permission Admin\n${validRoles}`)
         }
-        message.channel.send(`Following roles have Permission Admin\n${validRoles}`)
+        else if(args[0] == 'kick'){}
+        else if(args[0] == 'ban'){}
+        else if(args[0] == 'channel'){}
+        else if(args[0] == 'server'){}
+        else if(args[0] == 'role'){}
+        else if(args[0] == 'message'){}
+        else{return message.channel.send("Wrong input correct input should be any one from below\n**admin**\n**kick**\n**ban**\n**channel**\n**server**\n**role**\n**message**")}
+        
+        return
         }
     }
 }
