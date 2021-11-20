@@ -2,7 +2,7 @@ module.exports = {
     name : 'check',
   async execute(message, args, PREFIX){
 
-    if(!args){
+    if(!args[0]){
         message.channel.send("Invalid")
         return
     }else{
@@ -13,11 +13,11 @@ module.exports = {
     
         for(var i=0; i<roleIds.length; i++){
            let role = message.guild.roles.cache.find(r=> r.id == roleIds[i])
-            if(role.editable && role.permissions.serialize().args){
+            if(role.editable && role.permissions.serialize().args[0]){
                 validRoles.push(role.name)
             }
         }
-        message.channel.send(`Following roles have Permission ${args}\n${validRoles}`)
+        message.channel.send(`Following roles have Permission ${args[0]}\n${validRoles}`)
         }
     }
 }
