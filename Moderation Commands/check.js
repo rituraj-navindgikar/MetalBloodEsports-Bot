@@ -19,11 +19,3 @@ module.exports = {
     message.channel.send(`Following roles have Permission ${args}\n${validRoles}`)
   }
 }
-
-
-for(var i=0; i<roleIds.length;i++){
-  let role = message.guild.roles.cache.find(r => r.id == roleIds[i])
-  if(role.editable && role.permissions.serialize().args){
-    //
-  }
-}
