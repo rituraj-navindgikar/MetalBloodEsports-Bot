@@ -643,7 +643,7 @@ client.on('message', message => {
 
 var input;
 client.on('message', async message => {
-  input = message.content
+  input = await message.content
 
   if(message.author.bot) return
   if(message.content == ',end'){
@@ -652,13 +652,13 @@ client.on('message', async message => {
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
     const high_messages = ["Nahh too high number", "That number is too high", "Guess some higher number", "try again with a higher number"]
 
-    const signal = db.get(`signal_${message.guild.id}`)
+    const signal = await db.get(`signal_${message.guild.id}`)
     if(!signal) return;
     
-    const num = Number(db.get(`number_guess_${message.guild.id}`))
-    const min = Number(db.get(`number_min_${message.guild.id}`))
-    const max = Number(db.get(`number_max_${message.guild.id}`))
-    const channel_id = Number(db.get(`channel_id_guess_${message.guild.id}`))
+    const num = await Number(db.get(`number_guess_${message.guild.id}`))
+    const min = await Number(db.get(`number_min_${message.guild.id}`))
+    const max = await Number(db.get(`number_max_${message.guild.id}`))
+    const channel_id = await Number(db.get(`channel_id_guess_${message.guild.id}`))
    
     
     if(message.channel.id == channel_id){
