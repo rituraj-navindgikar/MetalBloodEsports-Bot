@@ -630,7 +630,7 @@ client.on('message', message => {
     db.set(`number_guess_${message.guild.id}`, args[1])
     db.set(`number_min_${message.guild.id}`, args[2])
     db.set(`number_max_${message.guild.id}`, args[3])
-    db.set(`channel_guess_${message.guild.id}`, channel.id)
+    db.set(`channel_id_guess_${message.guild.id}`, channel.id)
     db.set(`signal_${message.guild.id}`, signal)
 
     message.channel.send(`Successfully created the guess game in channel ${channel}`)
