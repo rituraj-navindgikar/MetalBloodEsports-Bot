@@ -640,6 +640,9 @@ client.on('message', message => {
 
 client.on('message', message => {
   if(message.author.bot) return
+  if(message.content == ',stop'){
+    db.set(`signal_${message.guild.id}`, false)
+  }
     var input = message.content
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
     const high_messages = ["Nahh too high number", "That number is too high", "Guess some higher number", "try again with a higher number"]
@@ -675,6 +678,7 @@ client.on('message', message => {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
       }else{
         message.reply("nahh guess again")
+        db.set(`signal_${message.guild.id}`, false)
       }
     }
 
