@@ -650,15 +650,15 @@ client.on('message', message => {
 
     const signal = db.get(`signal_${message.guild.id}`)
     if(!signal) return;
-
+    
     const num = db.get(`number_guess_${message.guild.id}`)
     const min = db.get(`number_min_${message.guild.id}`)
     const max = db.get(`number_max_${message.guild.id}`)
-    const channel = db.get(`channel_guess_${message.guild.id}`)
-    
-    console.log(console.log(message.channel.id ,
-    channel.id))
-    if(message.channel.id == channel.id){
+    const channel_id = db.get(`channel_id_guess_${message.guild.id}`)
+   
+    console.log(message.channel.id,
+    channel_id)
+    if(message.channel.id == channel_id){
       console.log("got it here 1")
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
