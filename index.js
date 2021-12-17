@@ -659,13 +659,16 @@ client.on('message', message => {
     if(message.channel.id == channel_id){
       input = message.content
 
+      console.log(num,
+        min,
+        max)
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
       if(input > max){
         message.reply("Your number is larger than the max range")
       }
-      if(input > max){
+      if(input < min){
         message.reply("Your number is lower than the min range")
       }
       if(input < num){
