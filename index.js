@@ -621,9 +621,9 @@ client.on('message', message => {
     if(!args[3]) return message.channel.send(`Give a number for maximum range,
     ${PREFIX}guess #channel number min_range max_range`)
 
-    if(isNaN(args[1]+args[2]+args[3])) return message.channel.send("A number was not supplied")
+    if(isNaN(Number(args[1])+Number(args[2])+Number(args[3]))) return message.channel.send("A number was not supplied")
     
-    if(( (args[2] > args[1]) && (args[1] < args[3]) )){
+    if(( (Number(args[2]) > Number(args[1]) ) && ( Number(args[1]) < Number(args[3]) ) )){
       return message.channel.send(`${args[1]} does not lie between ${args[2]} & ${args[3]}`)
     }
     signal = true
@@ -659,9 +659,6 @@ client.on('message', message => {
     if(message.channel.id == channel_id){
       input = message.content
 
-      console.log(num,
-        min,
-        max)
       if(isNaN(Number(input))){
         message.reply("Hmm.. that doesn't seem like a number")
       }
