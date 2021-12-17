@@ -668,17 +668,11 @@ client.on('message', message => {
       else if(input > num){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
       }
-      else if(input > max){
-        message.reply(`:lol: Bruh you going high`)
-      }
-      else if(input < min){
-        message.reply(`:lol: Bruh you going high`)
-      }
       else if(input == num) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
+        db.set(`signal_${message.guild.id}`, false)
       }else{
         message.reply("nahh guess again")
-        db.set(`signal_${message.guild.id}`, false)
       }
     }
 
