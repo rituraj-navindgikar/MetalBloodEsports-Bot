@@ -662,7 +662,7 @@ client.on('message', message => {
       console.log(num,
         min,
         max)
-      if(isNaN(input)){
+      if(isNaN(Number(input))){
         message.reply("Hmm.. that doesn't seem like a number")
       }
       else if(Number(input) > Number(max)){
