@@ -623,8 +623,8 @@ client.on('message', message => {
 
     if(isNaN(Number(args[1])+Number(args[2])+Number(args[3]))) return message.channel.send("A number was not supplied")
     
-    console.log((Number(args[2]) > Number(args[1]) ) || ( Number(args[1]) < Number(args[3]))
-    console.log((Number(args[2]) > Number(args[1]) ) && ( Number(args[1]) < Number(args[3]))
+    console.log((Number(args[2]) > Number(args[1]) ) || ( Number(args[1]) < Number(args[3])))
+    console.log((Number(args[2]) > Number(args[1]) ) && ( Number(args[1]) < Number(args[3])))
     if(( (Number(args[2]) > Number(args[1]) ) || ( Number(args[1]) < Number(args[3]) ) )){
       return message.channel.send(`${args[1]} does not lie between ${args[2]} & ${args[3]}`)
     }
