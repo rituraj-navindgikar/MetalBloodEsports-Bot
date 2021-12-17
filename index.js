@@ -683,16 +683,16 @@ client.on('message', async message => {
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
         input = null
       }
-      else if(Boolean(Boolean(Number(Number(input)+3)==Number(num))||Boolean(Number(Number(input)-3)==Number(num)))){
+      else if(Boolean(Boolean(Number(Number(input)+3)==Number(num)) || Boolean(Number(Number(input)-3)==Number(num)))){
         message.reply(`You are getting close to the number`)
         input = null
       }
-      else if(Boolean(Boolean(Number(Number(input)+2)==Number(num))||Boolean(Number(Number(input)-2)==Number(num)))){
+      else if(Boolean(Boolean(Number(Number(input)+2)==Number(num)) || Boolean(Number(Number(input)-2)==Number(num)))){
         message.reply(`You are almost close to the number`)
         input = null
       }
-      else if(Boolean(Boolean(Number(Number(input)+1)==Number(num))||Boolean(Number(Number(input)-1)==Number(num)))){
-        message.reply('You are really  close to the number')
+      else if(Boolean(Boolean(Number(Number(input)+1)==Number(num)) || Boolean(Number(Number(input)-1)==Number(num)))){
+        message.reply('You are really close to the number')
         input = null
       }
       else if(Boolean(Number(input) == Number(num))){
