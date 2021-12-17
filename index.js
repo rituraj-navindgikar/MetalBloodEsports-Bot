@@ -649,8 +649,8 @@ client.on('message', async message => {
   if(message.content == ',end'){
     db.set(`signal_${message.guild.id}`, false)
   }
-    const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
-    const high_messages = ["Nahh too high number", "That number is too high", "Guess some higher number", "try again with a higher number"]
+    const low_messages = ["Jara aur bada number","Nahh too low number", "That number is too low", "Guess some larger number", "try again with a higher number"]
+    const high_messages = ["Jara chota number","Nahh too high number", "That number is too high", "Guess some lower number", "try again with a lower number"]
 
     const signal = await db.get(`signal_${message.guild.id}`)
     if(!signal) return;
