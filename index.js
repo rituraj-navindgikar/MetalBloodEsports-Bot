@@ -644,6 +644,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
+  if(message.author.bot) return
     var input = message.content
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
     const high_messages = ["Nahh too high number", "That number is too high", "Guess some lower number", "try again with a higher number"]
