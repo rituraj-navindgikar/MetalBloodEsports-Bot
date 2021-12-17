@@ -675,7 +675,7 @@ client.on('message', async message => {
         message.reply("Your number is lower than the min range")
         input = null
       }
-      if(Number(input) < Number(num)){
+      else if(Number(input) < Number(num)){
         message.reply(low_messages[Math.floor(Math.random() * low_messages.length)])
         input = null
       }
