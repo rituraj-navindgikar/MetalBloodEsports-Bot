@@ -644,21 +644,21 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
+    var input = message.content
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
     const high_messages = ["Nahh too high number", "That number is too high", "Guess some lower number", "try again with a higher number"]
 
     const signal = db.get(`signal_${message.guild.id}`)
-    if(!signal) return
+    if(!signal) return;
 
     const num = db.get(`number_guess_${message.guild.id}`)
     const min = db.get(`number_min_${message.guild.id}`)
     const max = db.get(`number_max_${message.guild.id}`)
     const channel = db.get(`channel_guess_${message.guild.id}`)
     
-  
-    var input = message.content
 
-    if(message.channel.id === channel.id){
+    if(message.channel.id == channel.id){
+
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
@@ -676,8 +676,11 @@ client.on('message', message => {
       }
       else if(input == num) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
+      }else{
+        message.reply("nahh guess again")
       }
     }
+    
   })
 
 client.login(process.env.DJS_TOKEN);
