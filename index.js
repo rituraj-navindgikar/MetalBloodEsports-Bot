@@ -656,9 +656,9 @@ client.on('message', message => {
     const max = db.get(`number_max_${message.guild.id}`)
     const channel = db.get(`channel_guess_${message.guild.id}`)
     
-
+    console.log("got till here 2")
     if(message.channel.id == channel.id){
-
+      console.log("got it here 1")
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
@@ -680,7 +680,7 @@ client.on('message', message => {
         message.reply("nahh guess again")
       }
     }
-    
+
   })
 
 client.login(process.env.DJS_TOKEN);
