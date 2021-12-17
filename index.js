@@ -656,7 +656,8 @@ client.on('message', message => {
     const max = db.get(`number_max_${message.guild.id}`)
     const channel = db.get(`channel_guess_${message.guild.id}`)
     
-    console.log("got till here 2")
+    console.log(console.log(message.channel.id ,
+    channel.id))
     if(message.channel.id == channel.id){
       console.log("got it here 1")
       if(isNaN(input)){
