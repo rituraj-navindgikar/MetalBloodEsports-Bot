@@ -635,6 +635,11 @@ client.on('message', message => {
 
     message.channel.send(`Successfully created the guess game in channel ${channel}`)
     channel.send(`Guess the number which is in between ${args[2]} - ${args[3]}`)
+    console.log(args[0],
+      args[1],
+      args[2],
+      args[3],
+      signal)
   }
 })
 
@@ -650,6 +655,7 @@ client.on('message', message => {
     const max = db.get(`number_max_${message.guild.id}`)
     const channel = db.get(`channel_guess_${message.guild.id}`)
     
+  
     var input = message.content
 
     if(message.channel.id === channel.id){
