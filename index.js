@@ -635,11 +635,6 @@ client.on('message', message => {
 
     message.channel.send(`Successfully created the guess game in channel ${channel}`)
     channel.send(`Guess the number which is in between ${args[2]} - ${args[3]}`)
-    console.log(args[0],
-      args[1],
-      args[2],
-      args[3],
-      signal)
   }
 })
 
@@ -647,7 +642,7 @@ client.on('message', message => {
   if(message.author.bot) return
     var input = message.content
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
-    const high_messages = ["Nahh too high number", "That number is too high", "Guess some lower number", "try again with a higher number"]
+    const high_messages = ["Nahh too high number", "That number is too high", "Guess some higher number", "try again with a higher number"]
 
     const signal = db.get(`signal_${message.guild.id}`)
     if(!signal) return;
