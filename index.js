@@ -604,10 +604,9 @@ client.on('message', message => {
   if(!message.content.startsWith(PREFIX)) return;
   const args = message.content.slice(PREFIX.length).split(/ +/);                   
   const command = args.shift().toLowerCase()
-  var signal= false, num, min, max, channel
+  var signal = false
 
   if(command === 'guess'){
-
     if(!args[0]) return message.channel.send(`Mention a channel, correct format is
     ${PREFIX}guess #channel number min_range max_range`)
     channel = message.mentions.channels.first()
@@ -616,30 +615,44 @@ client.on('message', message => {
     if(!args[1]) return message.channel.send(`Give a number which is to be guessed,
     ${PREFIX}guess #channel number min_range max_range`)
 
-    if(!args[2]) return message.channel.send(`Give a numebr for minimum range,
+    if(!args[2]) return message.channel.send(`Give a numeber for minimum range,
     ${PREFIX}guess #channel number min_range max_range`)
 
     if(!args[3]) return message.channel.send(`Give a number for maximum range,
     ${PREFIX}guess #channel number min_range max_range`)
 
-    num = args[1]
-    min = args[2]
-    max = args[3]
-
     if(isNaN(num+min+max)) return message.channel.send("A number was not supplied")
-
-    if(!(min > num < max)){
-        return message.channel.send(`${num} does ot lie between ${min} & ${max}`)
+    
+    if(( (min > num) && (min < max) )){
+      return message.channel.send(`${num} does not lie between ${min} & ${max}`)
     }
+    signal = true
+    db.set(`number_guess_${message.guild.id}`, args[1])
+    db.set(`number_min_${message.guild.id}`, args[2])
+    db.set(`number_max_${message.guild.id}`, args[3])
+    db.set(`channel_guess_${message.guild.id}`, channel.id)
+    db.set(`signal_${message.guild.id}`, signal)
+
+    message.channel.send(`Successfully created the guess game in channel ${channel}`)
     channel.send(`Guess the number which is in between ${min} - ${max}`)
   }
+})
 
+client.on('message', message => {
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
     const high_messages = ["Nahh too high number", "That number is too high", "Guess some lower number", "try again with a higher number"]
 
-    if(!channel.id) return
-    if(message.channel.id == channel.id && signal){
-      const input = message.content
+    const signal = db.get(`signal_${message.guild.id}`)
+    if(!signal) return
+
+    const num = db.get(`number_guess_${message.guild.id}`)
+    const min = db.get(`number_min_${message.guild.id}`)
+    const max = db.get(`number_max_${message.guild.id}`)
+    const channel = db.get(`channel_guess_${message.guild.id}`)
+    
+    var input = message.content
+
+    if(message.channel.id === channel.id){
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
@@ -649,11 +662,17 @@ client.on('message', message => {
       else if(input > num){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
       }
-      else if(input === num) {
+      else if(input > max){
+        message.reply(`:lol: Bruh you going high`)
+      }
+      else if(input < min){
+        message.reply(`:lol: Bruh you going high`)
+      }
+      else if(input == num) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
       }
     }
-})
+  })
 
 client.login(process.env.DJS_TOKEN);
 //0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟⏸️🔢👉
