@@ -683,7 +683,7 @@ client.on('message', message => {
       else if(Number(input+2) == Number(num) || Number(input-2) == Number(num)){
         message.reply(`You are almost close to the number`)
       }
-      else if(Number(input+1) == (num) || Number(input-1) == Number(num)){
+      else if(Number(input+1) == Number(num) || Number(input-1) == Number(num)){
         message.reply('You are really  close to the number')
       }
       else if(Number(input) == Number(num)) {
