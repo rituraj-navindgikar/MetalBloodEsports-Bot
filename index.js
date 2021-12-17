@@ -662,22 +662,28 @@ client.on('message', message => {
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
-      else if(input < num){
+      if(input > max){
+        message.reply("Your number is larger than the max range")
+      }
+      if(input > max){
+        message.reply("Your number is lower than the min range")
+      }
+      if(input < num){
         message.reply(low_messages[Math.floor(Math.random() * low_messages.length)])
       }
-      else if(input > num){
+      if(input > num){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
       }
-      else if(input+3 == num || input-3 == num){
+      if(input+3 == num || input-3 == num){
         message.reply(`You are getting close to the number`)
       }
-      else if(input+2 == num || input-2 == num){
+      if(input+2 == num || input-2 == num){
         message.reply(`You are almost close to the number`)
       }
-      else if(input+1 == num || input-1 == num){
+      if(input+1 == num || input-1 == num){
         message.reply('You are really  close to the number')
       }
-      else if(input == num) {
+      if(input == num) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
         db.delete(`signal_${message.guild.id}`)
         db.delete(`number_guess_${message.guild.id}`)
