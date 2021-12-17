@@ -413,6 +413,8 @@ client.on('message', message => {
   else if(command === 'devices'){
     client.commands.get('devices').execute(message,args, PREFIX, client, Discord);
   }else if(command === 'device'){client.commands.get('devices').execute(message,args,PREFIX,client,Discord)}
+
+
 })
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //play songs in chatbot channel
@@ -597,7 +599,61 @@ client.on('message', async(message) => {
   data.Current = parseInt(message.content)
   data.save();
 })
+////////////////////////////////////////////////////////////////////////////
+client.on('message', message => {
+  if(!message.content.startsWith(PREFIX)) return;
+  const args = message.content.slice(PREFIX.length).split(/ +/);                   
+  const command = args.shift().toLowerCase()
+  var signal= false, num, min, max, channel
+
+  if(command === 'guess'){
+
+    if(!args[0]) return message.channel.send(`Mention a channel, correct format is
+    ${PREFIX}guess #channel number min_range max_range`)
+    channel = message.mentions.channels.first()
+    if(!channel) return message.channel.send("Mentioned was not a channel")
+
+    if(!args[1]) return message.channel.send(`Give a number which is to be guessed,
+    ${PREFIX}guess #channel number min_range max_range`)
+
+    if(!args[2]) return message.channel.send(`Give a numebr for minimum range,
+    ${PREFIX}guess #channel number min_range max_range`)
+
+    if(!args[3]) return message.channel.send(`Give a number for maximum range,
+    ${PREFIX}guess #channel number min_range max_range`)
+
+    num = args[1]
+    min = args[2]
+    max = args[3]
+
+    if(isNaN(num+min+max)) return message.channel.send("A number was not supplied")
+
+    if(!(min > num < max)){
+        return message.channel.send(`${num} does ot lie between ${min} & ${max}`)
+    }
+    channel.send(`Guess the number which is in between ${min} - ${max}`)
+  }
+
+    const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
+    const high_messages = ["Nahh too high number", "That number is too high", "Guess some lower number", "try again with a higher number"]
+
+    if(!channel.id) return
+    if(message.channel.id == channel.id && signal){
+      const input = message.content
+      if(isNaN(input)){
+        message.reply("Hmm.. that doesn't seem like a number")
+      }
+      else if(input < num){
+        message.reply(low_messages[Math.floor(Math.random() * low_messages.length)])
+      }
+      else if(input > num){
+        message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
+      }
+      else if(input === num) {
+        message.reply(`Bravo You guessed it right. The number was ${num}`)
+      }
+    }
+})
 
 client.login(process.env.DJS_TOKEN);
-return 0;
 //0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟⏸️🔢👉
