@@ -623,7 +623,9 @@ client.on('message', message => {
 
     if(isNaN(Number(args[1])+Number(args[2])+Number(args[3]))) return message.channel.send("A number was not supplied")
     
-    if(( (Number(args[2]) > Number(args[1]) ) && ( Number(args[1]) < Number(args[3]) ) )){
+    console.log((Number(args[2]) > Number(args[1]) ) || ( Number(args[1]) < Number(args[3]))
+    console.log((Number(args[2]) > Number(args[1]) ) && ( Number(args[1]) < Number(args[3]))
+    if(( (Number(args[2]) > Number(args[1]) ) || ( Number(args[1]) < Number(args[3]) ) )){
       return message.channel.send(`${args[1]} does not lie between ${args[2]} & ${args[3]}`)
     }
     signal = true
@@ -641,7 +643,7 @@ client.on('message', message => {
 var input;
 client.on('message', message => {
   if(message.author.bot) return
-  if(message.content == ',stop'){
+  if(message.content == ',end'){
     db.set(`signal_${message.guild.id}`, false)
   }
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
