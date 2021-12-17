@@ -642,7 +642,9 @@ client.on('message', message => {
 })
 
 var input;
-client.on('message', message => {
+client.on('message', async message => {
+  input = message.content
+
   if(message.author.bot) return
   if(message.content == ',end'){
     db.set(`signal_${message.guild.id}`, false)
@@ -660,31 +662,38 @@ client.on('message', message => {
    
     
     if(message.channel.id == channel_id){
-      input = message.content
 
       if(isNaN(Number(input))){
         message.reply("Hmm.. that doesn't seem like a number")
+        input = null
       }
       else if(Number(input) > Number(max)){
         message.reply("Your number is larger than the max range")
+        input = null
       }
       else if(Number(input) < Number(min)){
         message.reply("Your number is lower than the min range")
+        input = null
       }
-      else if(Number(input) < Number(num)){
+      if(Number(input) < Number(num)){
         message.reply(low_messages[Math.floor(Math.random() * low_messages.length)])
+        input = null
       }
       else if(Number(input) > Number(num)){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
+        input = null
       }
       else if(Number(input+3) == Number(num) || Number(input-3) == Number(num)){
         message.reply(`You are getting close to the number`)
+        input = null
       }
       else if(Number(input+2) == Number(num) || Number(input-2) == Number(num)){
         message.reply(`You are almost close to the number`)
+        input = null
       }
       else if(Number(input+1) == Number(num) || Number(input-1) == Number(num)){
         message.reply('You are really  close to the number')
+        input = null
       }
       else if(Number(input) == Number(num)) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
@@ -692,9 +701,12 @@ client.on('message', message => {
         db.delete(`number_guess_${message.guild.id}`)
         db.delete(`number_min_${message.guild.id}`)
         db.delete(`number_max_${message.guild.id}`)
+        input = null
       }else{
         message.reply("nahh guess again")
+        input = null
       }
+      input = null
     }
 
   })
