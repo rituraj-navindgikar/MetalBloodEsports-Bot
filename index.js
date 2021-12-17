@@ -638,12 +638,12 @@ client.on('message', message => {
   }
 })
 
+var input;
 client.on('message', message => {
   if(message.author.bot) return
   if(message.content == ',stop'){
     db.set(`signal_${message.guild.id}`, false)
   }
-    var input = message.content
     const low_messages = ["Nahh too low number", "That number is too low", "Guess some larger number", "try again with a lower number"]
     const high_messages = ["Nahh too high number", "That number is too high", "Guess some higher number", "try again with a higher number"]
 
@@ -655,10 +655,10 @@ client.on('message', message => {
     const max = db.get(`number_max_${message.guild.id}`)
     const channel_id = db.get(`channel_id_guess_${message.guild.id}`)
    
-    console.log(message.channel.id,
-    channel_id)
+    
     if(message.channel.id == channel_id){
-      console.log("got it here 1")
+      input = message.content
+
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
@@ -668,9 +668,21 @@ client.on('message', message => {
       else if(input > num){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
       }
+      else if(input+3 == num || input-3 == num){
+        message.reply(`You are getting close to the number`)
+      }
+      else if(input+2 == num || input-2 == num){
+        message.reply(`You are almost close to the number`)
+      }
+      else if(input+1 == num || input-1 == num){
+        message.reply('You are really  close to the number')
+      }
       else if(input == num) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
-        db.set(`signal_${message.guild.id}`, false)
+        db.delete(`signal_${message.guild.id}`)
+        db.delete(`number_guess_${message.guild.id}`)
+        db.delete(`number_min_${message.guild.id}`)
+        db.delete(`number_max_${message.guild.id}`)
       }else{
         message.reply("nahh guess again")
       }
