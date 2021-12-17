@@ -621,10 +621,10 @@ client.on('message', message => {
     if(!args[3]) return message.channel.send(`Give a number for maximum range,
     ${PREFIX}guess #channel number min_range max_range`)
 
-    if(isNaN(num+min+max)) return message.channel.send("A number was not supplied")
+    if(isNaN(args[1]+args[2]+args[3])) return message.channel.send("A number was not supplied")
     
-    if(( (min > num) && (min < max) )){
-      return message.channel.send(`${num} does not lie between ${min} & ${max}`)
+    if(( (args[2] > args[1]) && (args[1] < args[3]) )){
+      return message.channel.send(`${args[1]} does not lie between ${args[2]} & ${args[3]}`)
     }
     signal = true
     db.set(`number_guess_${message.guild.id}`, args[1])
@@ -634,7 +634,7 @@ client.on('message', message => {
     db.set(`signal_${message.guild.id}`, signal)
 
     message.channel.send(`Successfully created the guess game in channel ${channel}`)
-    channel.send(`Guess the number which is in between ${min} - ${max}`)
+    channel.send(`Guess the number which is in between ${args[2]} - ${args[3]}`)
   }
 })
 
