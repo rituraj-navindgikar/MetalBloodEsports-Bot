@@ -650,10 +650,10 @@ client.on('message', message => {
     const signal = db.get(`signal_${message.guild.id}`)
     if(!signal) return;
     
-    const num = db.get(`number_guess_${message.guild.id}`)
-    const min = db.get(`number_min_${message.guild.id}`)
-    const max = db.get(`number_max_${message.guild.id}`)
-    const channel_id = db.get(`channel_id_guess_${message.guild.id}`)
+    const num = Number(db.get(`number_guess_${message.guild.id}`))
+    const min = Number(db.get(`number_min_${message.guild.id}`))
+    const max = Number(db.get(`number_max_${message.guild.id}`))
+    const channel_id = Number(db.get(`channel_id_guess_${message.guild.id}`))
    
     
     if(message.channel.id == channel_id){
@@ -665,28 +665,28 @@ client.on('message', message => {
       if(isNaN(input)){
         message.reply("Hmm.. that doesn't seem like a number")
       }
-      if(input > max){
+      else if(Number(input) > Number(max)){
         message.reply("Your number is larger than the max range")
       }
-      if(input < min){
+      else if(Number(input) < Number(min)){
         message.reply("Your number is lower than the min range")
       }
-      if(input < num){
+      else if(Number(input) < Number(num)){
         message.reply(low_messages[Math.floor(Math.random() * low_messages.length)])
       }
-      if(input > num){
+      else if(Number(input) > Number(num)){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
       }
-      if(input+3 == num || input-3 == num){
+      else if(Number(input+3) == Number(num) || Number(input-3) == Number(num)){
         message.reply(`You are getting close to the number`)
       }
-      if(input+2 == num || input-2 == num){
+      else if(Number(input+2) == Number(num) || Number(input-2) == Number(num)){
         message.reply(`You are almost close to the number`)
       }
-      if(input+1 == num || input-1 == num){
+      else if(Number(input+1) == (num) || Number(input-1) == Number(num)){
         message.reply('You are really  close to the number')
       }
-      if(input == num) {
+      else if(Number(input) == Number(num)) {
         message.reply(`Bravo You guessed it right. The number was ${num}`)
         db.delete(`signal_${message.guild.id}`)
         db.delete(`number_guess_${message.guild.id}`)
