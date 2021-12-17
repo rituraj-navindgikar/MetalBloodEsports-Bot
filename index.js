@@ -663,39 +663,39 @@ client.on('message', async message => {
     
     if(message.channel.id == channel_id){
 
-      if(isNaN(Number(input))){
+      if(Boolean(isNaN(Number(input)))){
         message.reply("Hmm.. that doesn't seem like a number")
         input = null
       }
-      else if(Number(input) > Number(max)){
+      else if(Boolean( Number(input) > Number(max) )){
         message.reply("Your number is larger than the max range")
         input = null
       }
-      else if(Number(input) < Number(min)){
+      else if(Boolean( Number(input) < Number(min) )){
         message.reply("Your number is lower than the min range")
         input = null
       }
-      else if(Number(input) < Number(num)){
+      else if(Boolean( Number(input) < Number(num) )){
         message.reply(low_messages[Math.floor(Math.random() * low_messages.length)])
         input = null
       }
-      else if(Number(input) > Number(num)){
+      else if(Boolean( Number(input) > Number(num) )){
         message.reply(high_messages[Math.floor(Math.random() * high_messages.length)])
         input = null
       }
-      else if(Number(input+3) == Number(num) || Number(input-3) == Number(num)){
+      else if(Boolean(Boolean(Number(Number(input)+3)==Number(num))||Boolean(Number(Number(input)-3)==Number(num)))){
         message.reply(`You are getting close to the number`)
         input = null
       }
-      else if(Number(input+2) == Number(num) || Number(input-2) == Number(num)){
+      else if(Boolean(Boolean(Number(Number(input)+2)==Number(num))||Boolean(Number(Number(input)-2)==Number(num)))){
         message.reply(`You are almost close to the number`)
         input = null
       }
-      else if(Number(input+1) == Number(num) || Number(input-1) == Number(num)){
+      else if(Boolean(Boolean(Number(Number(input)+1)==Number(num))||Boolean(Number(Number(input)-1)==Number(num)))){
         message.reply('You are really  close to the number')
         input = null
       }
-      else if(Number(input) == Number(num)) {
+      else if(Boolean(Number(input) == Number(num))){
         message.reply(`Bravo You guessed it right. The number was ${num}`)
         db.delete(`signal_${message.guild.id}`)
         db.delete(`number_guess_${message.guild.id}`)
